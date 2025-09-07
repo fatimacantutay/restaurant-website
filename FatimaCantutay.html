@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="device-width, initial-scale=1">
+        <title>Restaurant Webpage</title>
+        <style>
+            *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            }
+            body {
+                background: #eaeaea;
+            }
+            .header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 90px;
+                padding: 28px 8%;
+                background: #222;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 100;
+            }
+            .logo {
+                width: 120px;
+            }
+            .navbar a {
+                font-size: 18px;
+                color: #eaeaea;
+                text-decoration: none;
+                font-weight: 500;
+                margin: 0 20px;
+                transition: .3s;
+            }
+            .navbar a:hover {
+                color: #e31717;
+            }
+            .main {
+                min-height: 100vh;
+                background: url(steak.jpg);
+            }
+            .home {
+                position: relative;
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 50px 8% 0;
+            }
+            .home-content {
+                max-width: 630px;
+            }
+            .home-content h1 {
+                font-size: 65px;
+                font-family: serif;
+                line-height: 1;
+                color: #eaeaea;
+            }
+            .home-content h3 {
+                font-size: 24px;
+                margin: 5px;
+                color: #e31717;
+            }
+            .home-content p {
+                font-size: 18px;
+                color: #09001d;
+                font-family: verdana;
+                margin: 3%;
+                padding-bottom: 2%;
+                flex-basis: 21%;
+                background: #ffffff;
+                border-radius: 10px;
+                padding: 18px 12px;
+                box-sizing: border-box;
+                opacity: 0.6;
+            }
+            .btn {
+                display: inline-block;
+                padding: 10px 28px;
+                background: #e31717;
+                border: 2px solid #e31717;
+                border-radius: 6px;
+                box-shadow: 0 0 10px rgba(0,0,0,.1);
+                font-size: 16px;
+                color: #eaeaea;
+                letter-spacing: 1px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: .5s;
+            }
+            .btn:hover {
+                background: transparent;
+                color: #e31717
+            }
+            .menu {
+                width: 100%;
+                padding: 30px 0;
+                background: #222;
+            }
+            .title {
+                margin: auto;
+                text-align: center;
+                font-size: 25px;
+                font-family: "Pacifico";
+                color: #eaeaea;
+                padding-bottom: 10px;
+                margin-top: 70px;
+                border-radius: 7px;
+                width: 500px;
+            }
+            .title span {
+                color: #e31717;
+            }
+            .title p {
+                font-size: 25px;
+                font-weight: 300;
+                font-family: "Nunito";
+                color: #fab432;
+                margin-top: 2%;
+                position: relative;
+                z-index: 1;
+                display: inline-block;
+            }
+            .menu-list {
+                margin-top: 2%;
+                margin-bottom: 10px;
+                text-align: center;
+                color: #eaeaea;   
+            }
+            .row {
+                margin-top: 2%;
+                display: flex;
+                justify-content: space-between;
+            }
+            .image {
+                flex-basis: 23%;
+                padding: 20px;
+                min-width: 200px;
+                margin-bottom: 1%;
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            .image img {
+                width: 100%;
+                height: 70%;
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+            .image h3 {
+                text-align: center;
+                color: #eaeaea;
+                margin-top: 2%;
+            }
+            .image p {
+                text-align: center;
+                margin-top: 2%;
+                color: #eaeaea;
+            }
+            .about {
+                padding: 30px 0;
+                background: #222;
+            }
+            .container {
+                width: 80%;
+                margin: 0px auto;
+                padding: 20px;
+            }
+            .about-content {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+            .content {
+                flex: 1;
+                margin-left: 20px;
+                line-height: 1.3;
+                color: #eaeaea;
+                font-family: 'Times New Roman', serif;
+            }
+            .reservations {
+                padding: 30px 0;
+                background: #222;
+            }
+            .reserve {
+                background-color: #eaeaea;
+                margin: 50px;
+                box-shadow: rgba(0,0,0,.1);
+                display: grid;
+                grid-template-columns: 50% 50%;
+                background-color: #222;
+                outline: 3px dotted #e31717;
+            }
+            .hours {
+                background-color: #222;
+                padding: 50px;
+                outline: 3px dotted #e31717;
+                outline-offset: 0px;
+                text-align: center;
+            }
+            .hours p {
+                color: #eaeaea;
+                font-weight: bold;
+            }
+            .opening {
+                color: #eaeaea;
+                font-size: 35px;
+                text-transform: uppercase;
+            }
+            .opening-days {
+                color: #e31717;
+                font-size: 30px;
+                line-height: 2;
+            }
+            .input {
+                width: 300px;
+                padding: 10px;
+                margin: 50px auto;
+
+            }
+            .input label {
+                color: #eaeaea;
+                font-weight: bold;
+                display: block;
+                margin-bottom: 5px;
+            }
+            .reservation input[type="text"], .reservation input[type="email"] {
+                width: 100%;
+                padding: 6px 10px;
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+            }
+            .reservation input[type="submit"] {
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                opacity: 0.9;
+            }
+            .reservation input[type="submit"]:hover {
+                opacity: 1;
+            }
+            .contact {
+                color: #eaeaea;
+                text-align: center;
+                line-height: 1.5;
+            }
+            .footer-main {
+                background: #222;
+                text-align: center;
+                padding: 3px;
+                line-height: 2;
+                color: white;
+            }
+            @media (max-width: 770px){
+                .form {
+                    display: inline-block;
+                    margin-top: 25px;
+                    margin-right: 0;
+                    margin-left: 115px;
+                    margin-bottom: 25px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+       
+       <main class="main">
+             <!--Site Header with Navigation Bar--> 
+             <header class="header">
+                <img src="logoo.png" class="logo">
+
+                <nav class="navbar">
+                     <a href="#">Home</a>
+                     <a href="#menu">Menu</a>
+                     <a href="#aboutus">About Us</a>
+                     <a href="#reservations">Reservations</a>
+                </nav>
+             </header>
+             <!--Site header ends here-->
+       
+       <!--Home section-->      
+       <section class="home">
+            <div class="home-content">
+                <h3>Welcome to Dine and Wine.</h3>
+                <h1>Authentic European<br> Restaurant</h1>
+                <p><b><i>At Dine and Wine, we guarantee to serve you bonafide European Cuisines
+                     that will satisfy your tastebuds, matched with only the best luscious wines 
+                     that are perfect to end the night. </b></i></p>
+                <a href="#reservations" class="btn">Reserve Now</a>
+            </div>
+       </section>
+       </main>
+       <!--Home section ends here-->
+
+       <!--Menu section starts-->
+       <section id="menu" class="menu">
+            <div class="title">
+                <h1>Our <span>Menu</span></h1>
+                <p>Indulge in the exquisite and divine taste of European cuisine with our menu.</p>
+            </div>
+            <div class="menu-list">
+                <h2>Main Course</h2>
+            </div>
+            <div class="row">
+                <div class="image">
+                    <img src="Lamb Steak.jpg">
+                    <h3>Lamb Steak</h3>
+                    <p>topped with Rosemary and served with seasonal vegetables</p>
+                    <h3>$24.50</h3>
+                </div>
+                <div class="image">
+                    <img src="Duck Breast.jpg">
+                    <h3>Duck Breast</h3>
+                    <p>served with Cipollini onions, vegetables, and mashed potatoes</p>
+                    <h3>$23.00</h3>
+                </div>
+                <div class="image">
+                    <img src="Grilled Sea Bass.jpg">
+                    <h3>Grilled Sea Bass</h3>
+                    <p>scented with Garlic & Rosemary and served with a Carrot & Orange puree</p>
+                    <h3>$18.50</h3>
+                </div>
+                <div class="image">
+                    <img src="Chicken Supreme.jpg">
+                    <h3>Chicken Supreme</h3>
+                    <p>served with steamed potatoes, seasonal vegetables in Mustard cream and Prune sauce</p>
+                    <h3>$25.00</h3>
+                </div>
+            </div>  
+            <div class="menu-list">
+                <h2>Pasta Dishes</h2>
+            </div>
+            <div class="row">
+                <div class="image">
+                    <img src="Vongole.jpg">
+                    <h3>Spaghetti alle vongole<br>$16.50</h3>
+                </div>
+                <div class="image">
+                    <img src="amatriciana.jpg">
+                    <h3>Amatriciana<br>$13.00</h3>
+                </div>
+                <div class="image">
+                    <img src="spaghetti carbonara.jpg">
+                    <h3>Pasta carbonara<br>$18.00</h3>
+                </div>
+                <div class="image">
+                    <img src="Ravioli.jpg">
+                    <h3>Ravioli<br>$12.50</h3>
+                </div>
+            </div>  
+            <div class="menu-list">
+                <h2>Desserts</h2>
+            </div>
+            <div class="row">
+                <div class="image">
+                    <img src="creme brulee.jpg">
+                    <h3>Crème Brûlée<br>$5.00</h3>
+                </div>
+                <div class="image">
+                    <img src="macarons.jpg">
+                    <h3>Macarons<br>$3.00</h3>
+                </div>
+                <div class="image">
+                    <img src="tiramisu.jpg">
+                    <h3>Tiramisu<br>$6.50</h3>
+                </div>
+                <div class="image">
+                    <img src="Panna cotta tart.jpg">
+                    <h3>Panna Cotta Tart<br>$10.50</h3>
+                </div>
+            </div>  
+            <div class="menu-list">
+                <h2>Wine</h2>
+            </div>
+            <div class="row">
+                <div class="image">
+                    <img src="sauvignon blanc.jpg">
+                    <h3>Sauvignon Blanc</h3>
+                    <p>Lemon-lime, gooseberry, green herbs, and white flower aromas</p>
+                    <h3>$20.00</h3>
+                </div>
+                <div class="image">
+                    <img src="Viognier.jpg">
+                    <h3>Viognier</h3>
+                    <p>Full-bodied with intense aromas of peach, guava, melon, and lemon</p>
+                    <h3>$18.50</h3>
+                </div>
+                <div class="image">
+                    <img src="Pinot noir.jpg">
+                    <h3>Pinot Noir</h3>
+                    <p> Light-bodied but viscous with red fruit, oak spice, pepper, and smoke</p>
+                    <h3>$18.00</h3>
+                </div>
+                <div class="image">
+                    <img src="cabarnet sauvignon.jpg">
+                    <h3>Cabernet Sauvignon</h3>
+                    <p>Aromas of mixed berries, herbs, and spice with balanced acidity</p>
+                    <h3>$19.50</h3>
+                </div>
+            </div>  
+       </section>
+       <!--Menu section ends here-->
+
+        <!--About section starts-->
+        <section id="aboutus" class="about">
+            <div class="container">
+                <div class="title">
+                    <h1><span>About</span> Us</h1>
+                </div>    
+                <div class="about-content">
+                    <img src="logoo.png">
+                <div class="content">
+                    <h2>Welcome to Dine and Wine, where European culinary traditions and modern cuisine
+                 come together to create a delightful dining experience. 
+                 Our restaurant is more than just a place to eat; it's a 
+                 journey through the rich tapestry of European flavors, carefully crafted
+                 to tantalize your taste buds and transport you to the heart of Europe.</h3><br>
+                    <p>Whether you're savoring a plate of handmade pasta, enjoying a perfectly 
+                 seared steak, or relishing a mouthwatering dessert, each dish tells a unique
+                 story of the region it hails from. We offer an extensive wine list to complement your meal,
+                 featuring carefully selected European wines that pair beautifully with our dishes.</p>
+                </div> 
+                </div>
+            </div> 
+        </section>
+        <!--About section ends here-->
+
+       <!--Reservation and contact section starts--> 
+       <section id="reservations" class="reservations">
+            <div class="title">
+                <h1><span>Reserve</span> Now</h1>
+            </div>
+            <div class="reserve">
+                <div class="hours">
+                    <h2 class="opening">Opening Hours</h2>
+                    <h3 class="opening-days">Monday-Friday</h3>
+                    <p>8am - 10pm</p>
+                    <h3 class="opening-days">Saturday and Sunday</h3>
+                    <p>10am - 11pm</p>
+                </div>
+            <div class="input">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Full Name"> 
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email">
+                <label for="people">People</label>
+                <input type="number" id="people" name="people" placeholder="Number of People">
+                <label for="dateandtime">Date and Time</label>
+                <input type="datetime-local" id="time" name="time" placeholder="Select Date and Time"> 
+                <input type="submit" value="Reserve Table">
+            </div>    
+            </div>
+            <div class="contact">
+                <h2>Find us at South Montilla Blvd., Butuan City or call us at +639916038673<br>Email : dineandwine@gmail.com</h2>
+            </div>
+        </section>  
+        <!--Reservation and contact section ends here--> 
+    </body>
+
+    <!--Footer-->
+    <footer>
+        <div class="footer-main">
+            <hr>
+            <h2>All Rights Reserved</h2>
+            <h3>Dine and Wine.</h3>
+        </div>
+    </footer> 
+    <!--Footer section and website ends here-->  
+</html>
